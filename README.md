@@ -3,7 +3,7 @@
 
     Then I opened the executable for that program in IDA and found this block of assembly instructions:
 
-    ```asm
+    ```
     .text:000000014000BF10                 sub     rsp, 88h
     .text:000000014000BF17                 mov     [rsp+88h+var_4], 0
     .text:000000014000BF22                 lea     rcx, ?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A ; struct basic_ostream<char,std::char_traits<char> > *
