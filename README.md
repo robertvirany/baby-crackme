@@ -20,7 +20,7 @@ Then I opened the executable for that program in IDA and found this block of ass
 .text:000000014000BF60                 jnz     short loc_14000BF77
 ```
 
-This assembly prompts the user for input and compares the input to Str2 (Ida thinks this is "password" I believe due to the symbolic info in the .pdb file). If the compare is not zero, the program short jumps to loc_14000BF77, to the branch where the program will continue and eventually print "Access granted!". If it is zero, it will continue without jumping to the "wrong password" branch where it will eventually print "Access denied!".
+This assembly prompts the user for input and compares the input to Str2 (Ida thinks this is "password" I believe due to the symbolic info in the .pdb file). If the compare is not zero, the program short jumps to loc_14000BF77, to the branch where the program will continue and eventually print "Access granted!". If it is zero, it will continue, without jumping, to the "wrong password" branch where it will eventually print "Access denied!".
 
 To reverse this, I simply changed the code from jnz (0x1575) to jz (0x1574) to reverse the control flow. You can see that if you run `crackme.exe` and enter the correct password (password) it will print "Access denied!" which is opposite of the original logic (saved in `crackme.bak.exe`).
 
